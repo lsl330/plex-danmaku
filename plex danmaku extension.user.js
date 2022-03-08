@@ -66,6 +66,9 @@ function initButton(){
         }
     })
     $("#searchDanmaku").click(function(){
+        danmaku.clear();
+        danmaku.destroy()
+        danmaku=null
         next_video_flag=false
         console.log("searchDanmaku!!!!")
         actionFunction(false)
