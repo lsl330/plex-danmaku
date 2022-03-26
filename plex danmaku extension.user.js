@@ -79,7 +79,7 @@ function initButton(){
         actionFunction(false)
     })
     $("#infoDanmaku").click(function(){
-        console.log("ifoDanmaku!!!!")
+        console.log("infoDanmaku!!!!")
         if(episode_info!=null){
             alert(episode_info)
         }
