@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         plex danmaku extension
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.11
 // @description  try to take over the world!
 // @author       F2bbb&lsl330
 // @include     /^https?://.*:32400/web.*
@@ -95,10 +95,13 @@ function actionFunction (is_init=true) {
     danmaku=null
     episode_info=null
     selecAnime_id=0
+
     if(document.getElementById('searchDanmaku') == undefined){
         initButton()
     }
-    video_container=document.querySelector("video[class='HTMLMedia-mediaElement-1o7Jdm']");
+    video_container=document.querySelector('[class="HTMLMedia-mediaElement-1o7Jdm"]');
+    //修复音乐播放时播放界面不断刷新按钮的问题
+    //video_container=document.querySelector("video[class='HTMLMedia-mediaElement-1o7Jdm']");
     if(!first_ini){
         video_container.addEventListener('loadstart',listnContainer)
         video_container.addEventListener('play',changeVideo)
@@ -182,7 +185,8 @@ function actionFunction (is_init=true) {
                     var comments = bilibiliParser(obj2)
                     console.log(comments.length)
                     var container=document.querySelector("div[class='Player-fullPlayerContainer-3cCUBp']")
-                    var media=document.querySelector("video[class='HTMLMedia-mediaElement-1o7Jdm']")
+                    var media=document.querySelector('[class="HTMLMedia-mediaElement-1o7Jdm"]')
+                    //var media=document.querySelector("video[class='HTMLMedia-mediaElement-1o7Jdm']")
                     if(danmaku!=null){
                         danmaku.clear();
                         danmaku.destroy()
@@ -193,7 +197,8 @@ function actionFunction (is_init=true) {
                     danmaku=createDanmaku(container,media,comments)
                     //danmakuDisplay=document.getElementById('displayDanmaku')
 
-                    var test=document.querySelector("video[class='HTMLMedia-mediaElement-1o7Jdm']");
+                    var test=document.querySelector('[class="HTMLMedia-mediaElement-1o7Jdm"]');
+                    //var test=document.querySelector("video[class='HTMLMedia-mediaElement-1o7Jdm']");
                     test.setAttribute("test","test")
                     var test2=document.querySelector("div[class='Player-fullPlayerContainer-3cCUBp']");
                     test2.setAttribute("test","test")
@@ -299,6 +304,7 @@ function wait1(){
     selecAnime_id=0
     if(!first_ini){
         initButton()
+        //waitForKeyElements ("video[class='HTMLMedia-mediaElement-1o7Jdm']",actionFunction)
         waitForKeyElements ("a[class='MetadataPosterTitle-singleLineTitle-18uV9h MetadataPosterTitle-title-2tTQZd Link-link-3cHWtJ Link-default-5Qrl3D']",actionFunction)
     }else{
         actionFunction()
