@@ -304,7 +304,6 @@ function wait1(){
     selecAnime_id=0
     if(!first_ini){
         initButton()
-        //waitForKeyElements ("video[class='HTMLMedia-mediaElement-1o7Jdm']",actionFunction)
         waitForKeyElements ("a[class='MetadataPosterTitle-singleLineTitle-18uV9h MetadataPosterTitle-title-2tTQZd Link-link-3cHWtJ Link-default-5Qrl3D']",actionFunction)
     }else{
         actionFunction()
