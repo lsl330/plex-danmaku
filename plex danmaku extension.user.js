@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         plex danmaku extension
 // @namespace    http://tampermonkey.net/
-// @version      0.11
+// @version      0.12
 // @description  try to take over the world!
 // @author       F2bbb&lsl330
 // @include     /^https?://.*:32400/web.*
