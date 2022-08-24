@@ -138,9 +138,9 @@ function actionFunction (is_init=true) {
     //newepisode=parseInt(newepisode)
     var searchUrl;
     if(!is_init){
-        searchUrl = "https://api.acplay.net/api/v2/search/episodes?anime="+anime+"&withRelated=true" //+"&episode="+newepisode,
+        searchUrl = "https://api.dandanplay.net/api/v2/search/episodes?anime="+anime+"&withRelated=true" //+"&episode="+newepisode,
     }else{
-        searchUrl = "https://api.acplay.net/api/v2/search/episodes?anime="+anime+"&withRelated=true&episode="+newepisode
+        searchUrl = "https://api.dandanplay.net/api/v2/search/episodes?anime="+anime+"&withRelated=true&episode="+newepisode
     }
     GM_xmlhttpRequest({
         method: "GET",
@@ -174,7 +174,7 @@ function actionFunction (is_init=true) {
             }
             GM_xmlhttpRequest({
                 method: "GET",
-                url: "https://api.acplay.net/api/v2/comment/"+episodeId+"?withRelated=true",
+                url: "https://api.dandanplay.net/api/v2/comment/"+episodeId+"?withRelated=true",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
                 },
